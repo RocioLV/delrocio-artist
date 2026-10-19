@@ -1,0 +1,45 @@
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url('../../assets/pastel-paisaje.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 45%,
+    transparent 100%
+  );
+}
+
+.hero__content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero__content h1 {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.hero__content p {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
