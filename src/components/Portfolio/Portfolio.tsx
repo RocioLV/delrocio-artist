@@ -1,7 +1,8 @@
 
 import { useState } from 'react'
 import { artworks } from '../../data/artworks'
-import type { Technique } from '../../types/artwork'
+import type { Artwork, Technique } from '../../types/artwork'
+import ArtworkModal from '../ArtworkModal/ArtworkModal'
 import './Portfolio.css'
 
 type Filter = Technique | 'todas'
@@ -21,7 +22,9 @@ function Portfolio() {
   const [selectedFilter, setSelectedFilter] =
     useState<Filter>('todas')
 
-  // Solo mostramos filtros con obras disponibles
+  const [selectedArtwork, setSelectedArtwork] =
+    useState<Artwork | null>(null)
+
   const availableTechniques = Array.from(
     new Set(artworks.map((artwork) => artwork.technique))
   )
@@ -43,7 +46,6 @@ function Portfolio() {
         <span className="portfolio__eyebrow">
           Portafolio
         </span>
-
         <h2 id="portfolio-title">Obras</h2>
       </div>
 
@@ -74,9 +76,7 @@ function Portfolio() {
 
       <p className="portfolio__count" role="status">
         {filteredArtworks.length}
-        {filteredArtworks.length === 1
-          ? ' obra'
-          : ' obras'}
+        {filteredArtworks.length === 1 ? ' obra' : ' obras'}
       </p>
 
       <div className="portfolio__grid">
@@ -85,22 +85,34 @@ function Portfolio() {
             className="portfolio__artwork"
             key={artwork.id}
           >
-            <img
-              src={artwork.image}
-              alt={artwork.title}
-              loading="lazy"
-              decoding="async"
-            />
+            <button
+              type="button"
+              className="portfolio__image-button"
+              onClick={() => setSelectedArtwork(artwork)}
+              aria-label={`Ampliar ${artwork.title}`}
+            >
+              <img
+                src={artwork.image}
+                alt={artwork.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
 
             <figcaption>
               <span>{artwork.title}</span>
-              <span>
-                {techniqueLabels[artwork.technique]}
-              </span>
+              <span>{techniqueLabels[artwork.technique]}</span>
             </figcaption>
           </figure>
         ))}
       </div>
+
+      {selectedArtwork && (
+        <ArtworkModal
+          artwork={selectedArtwork}
+          onClose={() => setSelectedArtwork(null)}
+        />
+      )}
     </section>
   )
 }
