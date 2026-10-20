@@ -1,0 +1,66 @@
+
+.contact {
+  background-color: #f0ede8;
+  padding: 10rem 7%;
+  text-align: center;
+}
+
+.contact__container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact__eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.contact h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.contact p {
+  max-width: 440px;
+  margin: 0 auto 3rem;
+  color: #66615c;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.contact__email {
+  display: inline-block;
+  color: #292724;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+.contact__email:hover {
+  opacity: 0.6;
+}
+
+.contact__email:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+.contact__social {
+  margin-top: 5rem;
+  color: #77716a;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 7rem 7%;
+  }
+}
