@@ -1,45 +1,288 @@
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   isolation: isolate;
+
+  background: #f8f7f4;
+  padding: 9rem 8% 6rem;
 }
 
-.hero__background {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+/* Imagen de fondo ambiental */
 
-  background-image: url('../../assets/pastel-paisaje.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.hero__ambient {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 85%;
+  z-index: -1;
+  pointer-events: none;
+
+  opacity: 0.58;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.12) 25%,
+    rgba(0, 0, 0, 0.55) 65%,
+    black 100%
+  );
 
   mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 45%,
-    transparent 100%
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.12) 25%,
+    rgba(0, 0, 0, 0.55) 65%,
+    black 100%
   );
 }
 
+.hero__ambient img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(16px);
+  transform: scale(1.08);
+}
+
+/* Distribución principal */
+
+.hero__layout {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 8rem);
+}
+
 .hero__content {
-  padding: 2rem;
-  text-align: center;
+  max-width: 580px;
+}
+
+.hero__eyebrow {
+  display: block;
+  color: #716c66;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
 }
 
 .hero__content h1 {
-  font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  margin: 1.8rem 0 1.5rem;
+  color: #38352f;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(4.5rem, 8vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
 }
 
 .hero__content p {
+  max-width: 320px;
+  margin: 0 0 3rem;
+  color: #716c66;
   font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.hero__link {
+  display: inline-block;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #827b73;
+  color: #38352f;
+  font-size: 0.83rem;
+  text-decoration: none;
+  transition: opacity 250ms ease;
+}
+
+.hero__link:hover {
+  opacity: 0.55;
+}
+
+/* Pintura principal a la derecha */
+
+.hero__visual {
+  width: min(100%, 390px);
+  aspect-ratio: 4 / 5;
+  justify-self: end;
+  overflow: hidden;
+
+  box-shadow: 0 20px 65px rgb(40 35 30 / 0.07);
+}
+
+.hero__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 35% center;
+
+  transition:
+    transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .hero__visual:hover img {
+    transform: scale(1.055);
+  }
+}
+
+/* Texto inferior */
+
+.hero__footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 8%;
+  right: 8%;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #716c66;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+}
+
+.hero__footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero__footer a:hover {
+  text-decoration: underline;
+}
+
+.hero__link:focus-visible,
+.hero__footer a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+/* Tablet y móvil */
+
+
+/* Diseño responsive: tablet y móvil */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding: 8rem 5% 4rem;
+    align-items: center;
+  }
+
+  .hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Texto a la izquierda */
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(2.6rem, 9vw, 4.5rem);
+    line-height: 1;
+    margin: 1.2rem 0;
+  }
+
+  .hero__content p {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero__link {
+    font-size: 0.7rem;
+  }
+
+  /* Pintura a la derecha */
+
+  .hero__visual {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 3 / 5;
+    min-height: 0;
+    justify-self: end;
+  }
+
+  .hero__visual img {
+    object-fit: cover;
+    object-position: 35% center;
+  }
+
+  /* Fondo ambiental */
+
+  .hero__ambient {
+    width: 100%;
+    opacity: 0.35;
+  }
+
+  /* Información inferior */
+
+  .hero__footer {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    margin: 0;
+
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+
+    font-size: 0.55rem;
+  }
+}
+
+/* Ajustes para teléfonos pequeños */
+
+@media (max-width: 380px) {
+  .hero__layout {
+    gap: 0.6rem;
+  }
+
+  .hero__content h1 {
+    font-size: 2.45rem;
+  }
+
+  .hero__content p {
+    font-size: 0.7rem;
+  }
+
+  .hero__visual {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__visual img,
+  .hero__link {
+    transition: none;
+  }
+
+  .hero__visual:hover img {
+    transform: none;
+  }
 }

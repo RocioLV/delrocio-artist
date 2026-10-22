@@ -14,20 +14,18 @@ function Contact() {
         </span>
 
         <h2 id="contact-title">
-          Conversemos
+          Por aquí nos encontramos
         </h2>
 
         <p>
-          Para consultas sobre las obras,
-          colaboraciones o cualquier otra
-          información, puedes escribirme.
+          Por una obra, una idea o simplemente para saludar.
         </p>
 
         <a
           className="contact__email"
-          href="mailto:correo@ejemplo.com"
+          href="mailto:lorcavillalobos@gmail.com"
         >
-          correo@ejemplo.com
+          lorcavillalobos@gmail.com
         </a>
 
         <div className="contact__social">

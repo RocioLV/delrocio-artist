@@ -1,11 +1,22 @@
 
 import { useEffect, useRef } from 'react'
-import type { Artwork } from '../../types/artwork'
+import type { Artwork, Technique } from '../../types/artwork'
 import './ArtworkModal.css'
 
 interface ArtworkModalProps {
   artwork: Artwork
   onClose: () => void
+}
+
+const techniqueLabels: Record<Technique, string> = {
+  carboncillo: 'Carboncillo',
+  oleo: 'Óleo',
+  acrilico: 'Acrílico',
+  lapices: 'Lápices',
+  pasteles: 'Pasteles',
+  acuarela: 'Acuarela',
+  mixta: 'Técnicas mixtas',
+  gouache: 'Gouache',
 }
 
 function ArtworkModal({
@@ -16,7 +27,6 @@ function ArtworkModal({
 
   useEffect(() => {
     const dialog = dialogRef.current
-
     if (!dialog) return
 
     if (!dialog.open) {
@@ -50,25 +60,31 @@ function ArtworkModal({
         <button
           type="button"
           className="artwork-modal__close"
-          onClick={() => dialogRef.current?.close()}
           aria-label="Cerrar vista ampliada"
+          onClick={() => dialogRef.current?.close()}
         >
           ×
         </button>
 
-        <img
-          src={artwork.image}
-          alt={artwork.title}
-        />
+        <img src={artwork.image} alt={artwork.title} />
 
         <div className="artwork-modal__info">
           <h2>{artwork.title}</h2>
-          <p>{artwork.technique}</p>
 
-          {artwork.year && <p>{artwork.year}</p>}
+          <p>{techniqueLabels[artwork.technique]}</p>
+
+          {artwork.year != null && (
+            <p>{artwork.year}</p>
+          )}
 
           {artwork.dimensions && (
             <p>{artwork.dimensions}</p>
+          )}
+
+          {artwork.description && (
+            <p className="artwork-modal__description">
+              {artwork.description}
+            </p>
           )}
         </div>
       </div>

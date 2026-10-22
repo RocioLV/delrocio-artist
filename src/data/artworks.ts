@@ -1,20 +1,23 @@
 
 import type { Artwork } from '../types/artwork'
 
-import acuarelaFrutas from '../assets/acuarela-frutas.jpg'
-import gouachePaisaje from '../assets/gouache-paisaje.jpg'
-import gouachePaisaje2 from '../assets/gouache-paisaje2.jpg'
-import gouachePaisaje3 from '../assets/gouache-paisaje3.jpg'
-import gouacheSagradaFamilia from '../assets/gouache-sagradafamilia.jpg'
-import pastelFlor from '../assets/pastel-flor.jpg'
-import pastelPaisaje from '../assets/pastel-paisaje.jpg'
+import acuarelaFrutas from '../assets/optimized/acuarela-frutas.webp'
+import gouachePaisaje from '../assets/optimized/gouache-paisaje.webp'
+import gouachePaisaje2 from '../assets/optimized/gouache-paisaje2.webp'
+import gouachePaisaje3 from '../assets/optimized/gouache-paisaje3.webp'
+import gouacheSagradaFamilia from '../assets/optimized/gouache-sagradafamilia.webp'
+import pastelFlor from '../assets/optimized/pastel-flor.webp'
+import pastelPaisaje from '../assets/optimized/pastel-paisaje.webp'
 
 export const artworks: Artwork[] = [
   {
     id: 'obra-01',
-    title: 'Obra 01',
+    title: 'Obra-01',
     image: acuarelaFrutas,
     technique: 'acuarela',
+    year: 2025,
+    dimensions: '30 × 40 cm',
+    description: 'Descripción de la obra.',
     featured: false,
   },
   {
@@ -22,6 +25,9 @@ export const artworks: Artwork[] = [
     title: 'Obra 02',
     image: gouachePaisaje,
     technique: 'gouache',
+    year: 2025,
+    dimensions: '30 × 40 cm',
+    description: 'Descripción de la obra.',   
     featured: true,
   },
   {
@@ -29,6 +35,9 @@ export const artworks: Artwork[] = [
     title: 'Obra 03',
     image: gouachePaisaje2,
     technique: 'gouache',
+    year: 2025,
+    dimensions: '30 × 40 cm',
+    description: 'Descripción de la obra.',
     featured: true,
   },
   {

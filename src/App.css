@@ -3,3 +3,58 @@ main {
   width: 100%;
   min-height: 100vh;
 }
+
+/* Títulos de secciones */
+
+.portfolio .portfolio__heading h2,
+.about .about__content h2,
+.contact h2,
+.featured-gallery .featured-gallery__intro h2 {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #A78F91;
+}
+
+/* Etiquetas discretas */
+
+.portfolio__eyebrow,
+.about__eyebrow,
+.contact__eyebrow,
+.featured-gallery__eyebrow {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #817a72;
+}
+
+/* Animación de títulos */
+
+.section-reveal {
+  opacity: 0.55;
+  transform: translateY(18px) scale(0.98);
+
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal,
+  .section-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

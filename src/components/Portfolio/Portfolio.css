@@ -138,3 +138,15 @@
     transform: none;
   }
 }
+
+/* Equilibrar las dimensiones de las obras */
+
+.portfolio__artwork img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 380px;
+  margin-inline: auto;
+  object-fit: contain;
+}

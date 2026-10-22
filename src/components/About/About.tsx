@@ -23,16 +23,9 @@ function About() {
           <h2 id="about-title">Sobre mí</h2>
 
           <p>
-            Este espacio estará dedicado a presentar
-            a la artista, su trayectoria y su relación
-            con las distintas técnicas pictóricas.
-          </p>
-
-          <p>
-            Próximamente incorporaremos una biografía
-            personal y una descripción de su trabajo,
-            utilizando información proporcionada
-            directamente por ella.
+         Rocío Lorca dibuja y pinta desde que tiene memoria. Siempre curiosa por explorar nuevas técnicas, materiales y formas de expresión, ha encontrado en el arte un espacio para experimentar, descubrir y crear.
+         
+         Después de años dibujando y pintando, decide abrir este pequeño espacio para compartir sus obras, sus exploraciones y todo aquello que va tomando forma en el camino.
           </p>
         </div>
       </div>
