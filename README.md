@@ -1,75 +1,106 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# delRocío — Artist Portfolio
 
-Currently, two official plugins are available:
+A personal artist portfolio and interactive gallery built with React, TypeScript, and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project combines an editorial, minimalist visual approach with frontend development practices to create a space for showcasing original artwork.
 
-## React Compiler
+**[View Live Website](https://rociolv.github.io/delrocio-artist/)** · **[Source Code](https://github.com/RocioLV/delrocio-artist)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Responsive layout for desktop and mobile devices
+- Curated gallery of featured artworks
+- Artwork collection with technique-based filtering
+- Interactive artwork modal with additional details
+- Subtle scroll-based animations and hover effects
+- Optimized WebP artwork images
+- Accessibility considerations, including reduced-motion support
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- CSS3
+- Git & GitHub
+- GitHub Actions
+- GitHub Pages
+- Sharp for image optimization
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository:
 
+```bash
+git clone git@github.com:RocioLV/delrocio-artist.git
+cd delrocio-artist
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── Header/
+│   ├── Hero/
+│   ├── FeaturedGallery/
+│   ├── Portfolio/
+│   ├── ArtworkModal/
+│   ├── About/
+│   └── Contact/
+├── data/
+├── types/
+└── App.tsx
+```
+
+## Technical Decisions
+
+**Component-based architecture:** The interface is divided into reusable React components, separating the gallery, artwork details, navigation, and other sections.
+
+**Typed artwork data:** TypeScript interfaces provide a consistent structure for artwork information, including titles, techniques, images, and optional details.
+
+**Image optimization:** Artwork images are converted to WebP to reduce transfer size while maintaining visual quality.
+
+**Responsive design:** CSS Grid and media queries support different screen sizes while preserving the portfolio's editorial composition.
+
+**Automated deployment:** GitHub Actions installs dependencies, creates a production build, and deploys the application to GitHub Pages on pushes to the main branch.
+
+## Deployment
+
+The current live version is hosted on GitHub Pages with automated deployment through GitHub Actions.
+
+An additional deployment using private Amazon S3 storage and Amazon CloudFront with Origin Access Control (OAC) is planned.
+
+## Author
+
+**Rocío Lorca Villalobos**
+
+Frontend Developer & Artist
+
+[GitHub](https://github.com/RocioLV)
